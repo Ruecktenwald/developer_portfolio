@@ -1,7 +1,7 @@
 .hero-main {
     max-width: 1664px;
     max-height: 600px;
-    display: flex;
+    display: fixed;
     flex-direction: column;
 }
 
@@ -10,7 +10,7 @@
 /* Hero section styles */
 .hero {
     display: flex;
-    
+    min-width: 450px;
     align-items: flex-start;
     max-width: 1664px;
     margin-top: 0px;
@@ -32,6 +32,7 @@
 
 .hero-intro {
     max-width: 600px;
+    max-height:600px ;
     margin-left: 0px;
     padding-top: 80px;
     flex: 1;

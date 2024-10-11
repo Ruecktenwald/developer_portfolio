@@ -3,6 +3,7 @@
 
     /* Hero section layout on mobile */
     .hero {
+        min-width: 450px;
         display: flex;
         flex-direction: column; /* Stack cards and content vertically */
         align-items: center;
