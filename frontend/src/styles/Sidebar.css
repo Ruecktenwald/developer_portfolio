@@ -1,0 +1,63 @@
+/* Sidebar container */
+.sidebar-container {
+    padding-right: 0px;
+}
+.sidebar {
+    position: fixed;
+    top: 155px; /* Move it down from the top */
+    left: 20px; /* Keep it on the left */
+    width: 45px;
+    height: 35vh;
+    background-color: #1a1e23;
+    border-radius: 32.5px;  /* Rounded corners */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 40px 0;
+    border: 0.5px solid white;
+    transition: all 0.5s ease;  /* Smooth transition */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+/* Styling for each icon */
+.sidebar-icon {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 50%;
+    
+}
+
+.sidebar-icon:hover {
+    cursor: pointer;
+    color: #12F7D6;
+    transform: scale(1.2);  /* Grow the icon by 20% */
+}
+
+/* Mobile View */
+@media (max-width: 850px) {
+    .sidebar {
+        position: relative;
+        top: 0; /* Move the sidebar to the top */
+        left: 0;
+        width: 100%; /* Full width */
+        height: 30px; /* Adjust height to be smaller */
+        flex-direction: row; /* Align icons horizontally */
+        justify-content: space-evenly; /* Evenly space the icons */
+        padding: 8px 0; /* Reduce padding for mobile */
+        border-radius: 0; /* No rounded corners in mobile */
+        border: none; /* Remove border */
+        
+    }
+
+    .sidebar-icon {
+        width: 60px;
+        height: 30px;
+        transition: all 0.3s ease; /* Smooth transition for icons */
+    }
+}
