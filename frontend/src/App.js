@@ -9,11 +9,10 @@ import Sidebar from './components/SideBar';
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Sidebar />
+      {/* <Navbar /> */}
+      {/* <Sidebar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
-        
       </Routes>
     </Router>
   );
