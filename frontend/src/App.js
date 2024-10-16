@@ -1,16 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 import Home from './pages/Home';
-import Sidebar from './components/SideBar';
-
+import Header from './components/Header';
 
 function App() {
   return (
     <Router>
-      {/* <Navbar /> */}
-      {/* <Sidebar /> */}
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
