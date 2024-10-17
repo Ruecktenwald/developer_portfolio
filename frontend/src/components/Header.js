@@ -25,6 +25,10 @@ const Header = () => {
       }
     });
 
+    const cursorElement = document.querySelector('.typed-cursor');
+    if (cursorElement) {
+      cursorElement.classList.add('text-white', 'text-sm');
+    }
     return () => {
       navTyped.destroy();
     };
