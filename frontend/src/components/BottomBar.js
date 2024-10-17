@@ -10,7 +10,7 @@ const BottomBar = () => {
     <>
       {/* Sidebar for Mobile View - Always Visible */}
       <div
-        className="md:hidden fixed bottom-0 left-0 right-0 h-14 bg-bg2 text-white p-3 flex justify-around items-center shadow-md bg-opacity-90 backdrop-blur-md"
+        className="md:hidden fixed bottom-0 left-0 right-0 h-12 bg-bg2 text-white p-3 flex justify-around items-center shadow-md bg-opacity-90 backdrop-blur-md"
       >
         {/* Sidebar Icons */}
         <a href="#top" className="sidebar-icon hover:text-brand1 cursor-pointer transition-all duration-500">
@@ -39,7 +39,7 @@ const BottomBar = () => {
 
       {/* Full Sidebar for Larger View - Hidden by Default */}
       <div
-        className={`hidden md:flex fixed bottom-0 left-1/4 right-1/4 h-16 bg-bg2 text-white p-3 justify-around items-center bg-opacity-90 backdrop-blur-md rounded-t-lg shadow-md transition-transform duration-500 ${showSidebar ? 'translate-y-0' : 'translate-y-full'}`}
+        className={`hidden md:flex fixed bottom-0 left-1/4 right-1/4 h-12 bg-bg2 text-white p-3 justify-around items-center bg-opacity-90 backdrop-blur-md rounded-t-lg shadow-md transition-transform duration-500 ${showSidebar ? 'translate-y-0' : 'translate-y-full'}`}
         onMouseEnter={() => setShowSidebar(true)}
         onMouseLeave={() => setShowSidebar(false)}
       >
