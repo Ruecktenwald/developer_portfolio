@@ -9,75 +9,77 @@ const SkillsSection = () => {
           {/* Backend Technologies */}
           <div className="flex flex-col items-center">
             <div className="w-16 h-16 flex items-center justify-center mb-4 ">
-              <i className="devicon-django-plain text-4xl"></i>
+              
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg" />
+          
             </div>
             <p>Django</p>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-16 h-16 flex items-center justify-center mb-4">
-              <i className="devicon-fastapi-plain colored text-4xl"></i>
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI" className="w-full h-full" />
             </div>
             <p>FastAPI</p>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-16 h-16 flex items-center justify-center mb-4">
-              <i className="devicon-postgresql-plain colored text-4xl"></i>
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" className="w-full h-full" />
             </div>
             <p>PostgreSQL</p>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-16 h-16 flex items-center justify-center mb-4">
-              <i className="devicon-docker-plain colored text-4xl"></i>
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" className="w-full h-full" />
             </div>
             <p>Docker</p>
           </div>
           {/* Frontend Technologies */}
           <div className="flex flex-col items-center">
             <div className="w-16 h-16 flex items-center justify-center mb-4">
-              <i className="devicon-html5-plain colored text-4xl"></i>
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" className="w-full h-full" />
             </div>
             <p>HTML5</p>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-16 h-16 flex items-center justify-center mb-4">
-              <i className="devicon-figma-plain colored text-4xl"></i>
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" className="w-full h-full" />
             </div>
             <p>Figma</p>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-16 h-16 flex items-center justify-center mb-4">
-              <i className="devicon-javascript-plain colored text-4xl"></i>
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" className="w-full h-full" />
             </div>
             <p>JavaScript</p>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-16 h-16 flex items-center justify-center mb-4">
-              <i className="devicon-react-original colored text-4xl"></i>
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React.js" className="w-full h-full" />
             </div>
             <p>React.js</p>
           </div>
           {/* Full-Stack and DevOps */}
           <div className="flex flex-col items-center">
             <div className="w-16 h-16 flex items-center justify-center mb-4">
-              <i className="devicon-nodejs-plain colored text-4xl"></i>
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" className="w-full h-full" />
             </div>
             <p>Node.js</p>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-16 h-16 flex items-center justify-center mb-4">
-              <i className="devicon-python-plain colored text-4xl"></i>
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" className="w-full h-full" />
             </div>
             <p>Python</p>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-16 h-16 flex items-center justify-center mb-4">
-              <i className="devicon-mysql-plain colored text-4xl"></i>
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" className="w-full h-full" />
             </div>
             <p>SQL</p>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-16 h-16 flex items-center justify-center mb-4">
-              <i className="devicon-git-plain colored text-4xl"></i>
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" className="w-full h-full" />
             </div>
             <p>Git</p>
           </div>
