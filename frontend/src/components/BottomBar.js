@@ -3,7 +3,7 @@ import { Home, MailOutline } from '@mui/icons-material'; // Material UI Icons
 import CodeIcon from '@mui/icons-material/Code';
 import ComputerIcon from '@mui/icons-material/Computer';
 
-const Sidebar = () => {
+const BottomBar = () => {
   const [showSidebar, setShowSidebar] = useState(false);
 
   return (
@@ -30,7 +30,7 @@ const Sidebar = () => {
       {/* Sidebar Handle for Larger View */}
       {!showSidebar && (
         <div
-          className="hidden md:flex fixed bottom-0 left-1/2 transform -translate-x-1/2 h-10 w-20 bg-bg2 bg-opacity-30 backdrop-blur-md text-white p-2 items-center justify-center rounded-t-full shadow-md cursor-pointer transition-transform duration-500 hover:translate-y-2"
+          className="hidden md:flex fixed bottom-0 left-1/2 transform -translate-x-1/2 h-5 w-7  bg-white bg-opacity-5 text-white p-2 items-center justify-center rounded-t-full shadow-md cursor-pointer transition-transform duration-500 hover:translate-y-2"
           onMouseEnter={() => setShowSidebar(true)}
         >
           <button className="text-white cursor-pointer">≡</button>
@@ -61,4 +61,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default BottomBar;
