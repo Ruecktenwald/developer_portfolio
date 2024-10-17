@@ -1,61 +1,61 @@
-import React from 'react';
-import { GridView, MailOutline } from '@mui/icons-material'; // Material UI Icons
+import React, { useState } from 'react';
+import { Home, MailOutline } from '@mui/icons-material'; // Material UI Icons
 import CodeIcon from '@mui/icons-material/Code';
 import ComputerIcon from '@mui/icons-material/Computer';
-import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
-import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 
 const Sidebar = () => {
+  const [showSidebar, setShowSidebar] = useState(false);
+
   return (
     <>
-      {/* Sidebar for Desktop View */}
+      {/* Sidebar for Mobile View - Always Visible */}
       <div
-        className="hidden md:fixed md:top-[10rem] md:left-2 md:h-[calc(55%-5rem)] md:w-12 bg-bg2 text-white p-6 md:flex md:flex-col md:items-center md:space-y-8 rounded-t-3xl rounded-b-3xl shadow-md"
+        className="md:hidden fixed bottom-0 left-0 right-0 h-14 bg-bg2 text-white p-3 flex justify-around items-center shadow-md bg-opacity-90 backdrop-blur-md"
       >
         {/* Sidebar Icons */}
-        <div className="sidebar-icon hover:text-brand1">
-          <GridView fontSize="large" />
-        </div>
-        <div className="sidebar-icon hover:text-brand1">
-          <PersonOutlineIcon fontSize="large" />
-        </div>
-        <div className="sidebar-icon hover:text-brand1">
+        <a href="#top" className="sidebar-icon hover:text-brand1 cursor-pointer transition-all duration-500">
+          <Home fontSize="large" />
+        </a>
+        <a href="#skills" className="sidebar-icon hover:text-brand1 cursor-pointer transition-all duration-500">
           <CodeIcon fontSize="large" />
-        </div>
-        <div className="sidebar-icon hover:text-brand1">
+        </a>
+        <a href="#projects" className="sidebar-icon hover:text-brand1 cursor-pointer transition-all duration-500">
           <ComputerIcon fontSize="large" />
-        </div>
-        <div className="sidebar-icon hover:text-brand1">
-          <DriveFileRenameOutlineIcon fontSize="large" />
-        </div>
-        <div className="sidebar-icon hover:text-brand1">
+        </a>
+        <a href="#contact" className="sidebar-icon hover:text-brand1 cursor-pointer transition-all duration-500">
           <MailOutline fontSize="large" />
-        </div>
+        </a>
       </div>
 
-      {/* Sidebar for Mobile View */}
+      {/* Sidebar Handle for Larger View */}
+      {!showSidebar && (
+        <div
+          className="hidden md:flex fixed bottom-0 left-1/2 transform -translate-x-1/2 h-10 w-20 bg-bg2 bg-opacity-30 backdrop-blur-md text-white p-2 items-center justify-center rounded-t-full shadow-md cursor-pointer transition-transform duration-500 hover:translate-y-2"
+          onMouseEnter={() => setShowSidebar(true)}
+        >
+          <button className="text-white cursor-pointer">≡</button>
+        </div>
+      )}
+
+      {/* Full Sidebar for Larger View - Hidden by Default */}
       <div
-        className="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-bg2 text-white p-4 flex justify-around items-center shadow-md"
+        className={`hidden md:flex fixed bottom-0 left-1/4 right-1/4 h-16 bg-bg2 text-white p-3 justify-around items-center bg-opacity-90 backdrop-blur-md rounded-t-lg shadow-md transition-transform duration-500 ${showSidebar ? 'translate-y-0' : 'translate-y-full'}`}
+        onMouseEnter={() => setShowSidebar(true)}
+        onMouseLeave={() => setShowSidebar(false)}
       >
         {/* Sidebar Icons */}
-        <div className="sidebar-icon hover:text-brand1">
-          <GridView fontSize="large" />
-        </div>
-        <div className="sidebar-icon hover:text-brand1">
-          <PersonOutlineIcon fontSize="large" />
-        </div>
-        <div className="sidebar-icon hover:text-brand1">
+        <a href="#top" className="sidebar-icon px-2 hover:text-brand1 cursor-pointer transition-all duration-500">
+          <Home fontSize="large" />
+        </a>
+        <a href="#skills" className="sidebar-icon px2 hover:text-brand1 cursor-pointer transition-all duration-500">
           <CodeIcon fontSize="large" />
-        </div>
-        <div className="sidebar-icon hover:text-brand1">
+        </a>
+        <a href="#projects" className="sidebar-icon px-2 hover:text-brand1 cursor-pointer transition-all duration-500">
           <ComputerIcon fontSize="large" />
-        </div>
-        <div className="sidebar-icon hover:text-brand1">
-          <DriveFileRenameOutlineIcon fontSize="large" />
-        </div>
-        <div className="sidebar-icon hover:text-brand1">
+        </a>
+        <a href="#contact" className="sidebar-icon px-2 hover:text-brand1 cursor-pointer transition-all duration-500">
           <MailOutline fontSize="large" />
-        </div>
+        </a>
       </div>
     </>
   );

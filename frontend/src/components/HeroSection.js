@@ -31,18 +31,16 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section id="about" className="min-h-screen flex items-center justify-center bg-bg2 text-white pt-20 px-6">
+    <section id="top" className="min-h-screen flex items-center  justify-center bg-bg2 text-white pt-20 px-6 md:pl-12 lg:pl-20">
+      
+      
       <div className="container mx-auto flex flex-col md:flex-row items-center gap-12">
         <div className="max-w-xl text-left">
           <h1 className={`text-4xl font-bold mb-6 transition-opacity duration-1000 ease-in-out ${showContent ? 'opacity-100' : 'opacity-0'}`}>Hi, I'm Peter Ruecktenwald</h1>
           <p className="text-lg mb-6 font-mono">
             <span ref={typedElement}></span>
           </p>
-          <button
-            className={`bg-brand1 hover:bg-brand2 text-bg1 font-bold py-3 px-6 rounded transition-opacity duration-1000 ease-in-out inline-flex items-center ${showButton ? 'opacity-100' : 'opacity-0'}`}
-          >
-            Download CV <GetApp className="ml-2" />
-          </button>
+          <a href="#contact" className="bg-brand1 hover:bg-brand2 text-bg1 font-bold py-3 px-6 rounded inline-flex items-center">Let's Talk</a>
         </div>
       </div>
     </section>
