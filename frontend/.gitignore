@@ -70,3 +70,5 @@ coverage/
 # Output of yarn build or npm build
 /frontend/build/
 /build/
+
+node_modules/
