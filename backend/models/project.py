@@ -8,6 +8,7 @@ class Project(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     images = models.ManyToManyField('Image', blank=True)
     videos = models.ManyToManyField('Video', blank=True)
+    is_featured = models.BooleanField(default=False)  # New field to mark if the project is featured
 
     def __str__(self):
         return self.title

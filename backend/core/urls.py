@@ -1,9 +1,11 @@
+# urls.py
+
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include
 from django.contrib import admin
 from rest_framework.routers import DefaultRouter
-from backend.views.project_view import ProjectViewSet
+from backend.views.project_view import ProjectViewSet, get_featured_project
 from backend.views.blog_view import BlogViewSet
 from backend.views.image_view import ImageViewSet
 from backend.views.video_view import VideoViewSet
@@ -12,6 +14,7 @@ from backend.views.signup_view import signup_view
 from backend.views.blog_feed_subscribe_view import blog_feed_subscribe_view
 from backend.views.favorite_blog_view import favorite_blog_view
 from backend.views.subscription_views import subscribe_to_blog_feed, unsubscribe_from_blog_feed
+from backend.views.contact_view import contact_view
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -34,4 +37,8 @@ urlpatterns = [
     path('api/unsubscribe/', unsubscribe_from_blog_feed, name='unsubscribe'),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/auth/', include('djoser.urls')),
+    path('api/auth/', include('djoser.urls.authtoken')),
+     path('api/contact/', contact_view, name='contact'), 
+    path('api/featured-project/', get_featured_project, name='featured-project'),  # Featured project route
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

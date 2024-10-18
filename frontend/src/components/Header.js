@@ -45,7 +45,7 @@ const Header = () => {
         </div>
         <div className="flex items-center space-x-8 text-white">
         <a href="/" className="hover:text-brand1 transition ease-in-out duration-300">Home</a>
-          <Link to="#projects" className="hover:text-brand1 transition ease-in-out duration-300">Projects</Link>
+          <Link to="/projects" className="hover:text-brand1 transition ease-in-out duration-300">Projects</Link>
           <Link to="/contact" className="hover:text-brand1 transition ease-in-out duration-300">Contact</Link>
           <a href="https://github.com/ruecktenwald" target="_blank" rel="noopener noreferrer" className="hover:text-brand1 transition ease-in-out duration-300">
             <GitHub fontSize="medium" />
