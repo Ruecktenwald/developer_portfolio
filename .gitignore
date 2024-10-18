@@ -1,0 +1,74 @@
+# .gitignore for top-level, backend, and frontend
+
+# General
+*.pyc
+__pycache__/
+*.env
+*.DS_Store
+.idea/
+.vscode/
+
+# Python
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+.Python
+
+# Environment Variables
+.env
+
+# Database
+*.sqlite3
+*.db
+
+# Django Specific
+/media/
+/static/
+
+# Celery Beat Schedule File
+celerybeat-schedule
+
+# Node Modules (Frontend)
+/frontend/node_modules/
+node_modules/
+
+# Logs
+logs/
+*.log
+
+# OS generated files
+Thumbs.db
+desktop.ini
+
+# Yarn and NPM
+.yarn/
+.pnp.*
+.yarnrc.yml
+
+# Build and Dist files
+/frontend/dist/
+/frontend/build/
+/build/
+
+# React-specific
+*.eslintcache
+*.env.local
+*.env.development
+*.env.test
+*.env.production
+
+# Coverage files
+coverage/
+
+# Parcel cache
+.cache/
+.parcel-cache/
+
+# Output of yarn build or npm build
+/frontend/build/
+/build/
+
+node_modules/
