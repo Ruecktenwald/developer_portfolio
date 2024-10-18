@@ -12,6 +12,10 @@ from backend.views.signup_view import signup_view
 from backend.views.blog_feed_subscribe_view import blog_feed_subscribe_view
 from backend.views.favorite_blog_view import favorite_blog_view
 from backend.views.subscription_views import subscribe_to_blog_feed, unsubscribe_from_blog_feed
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 router = DefaultRouter()
 router.register('projects', ProjectViewSet)
@@ -25,7 +29,9 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('api/signup/', signup_view, name='signup'),  # User sign-up route
     path('api/blog-feed/subscribe/', blog_feed_subscribe_view, name='blog-feed-subscribe'),
-     path('api/blogs/<int:blog_id>/favorite/', favorite_blog_view, name='blog-favorite'),
-     path('api/subscribe/', subscribe_to_blog_feed, name='subscribe'),
-     path('api/unsubscribe/', unsubscribe_from_blog_feed, name='unsubscribe'),
+    path('api/blogs/<int:blog_id>/favorite/', favorite_blog_view, name='blog-favorite'),
+    path('api/subscribe/', subscribe_to_blog_feed, name='subscribe'),
+    path('api/unsubscribe/', unsubscribe_from_blog_feed, name='unsubscribe'),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
