@@ -158,9 +158,9 @@ const SkillsSection = () => {
   ];
 
   return (
-    <section id="skills" className="bg-bg1 text-white py-20 ">
+    <section id="skills" className="bg-bg1 text-white md:px-12 py-20 px-6">
       <div className="container mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-10 text-brand1 text-left  px-6">Technologies</h2>
+        <h2 className="text-4xl font-thin mb-10 text-brand1 text-left  ">Technologies</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 font-mono font-medium">
           {skills.map((skill) => (
             <div key={skill.name} className="flex flex-col items-center" onClick={() => handleSkillClick(skill)}>

@@ -8,6 +8,7 @@ from backend.views.blog_view import BlogViewSet
 from backend.views.image_view import ImageViewSet
 from backend.views.video_view import VideoViewSet
 from backend.views.home_view import home
+from backend.views.contact_view import contact_view
 from backend.views.signup_view import signup_view
 from backend.views.blog_feed_subscribe_view import blog_feed_subscribe_view
 from backend.views.favorite_blog_view import favorite_blog_view
@@ -28,6 +29,7 @@ urlpatterns = [
     path('', home, name='home'),  # Home page route
     path('api/', include(router.urls)),
     path('api/signup/', signup_view, name='signup'),  # User sign-up route
+    path('api/contact/', contact_view, name='contact'),
     path('api/blog-feed/subscribe/', blog_feed_subscribe_view, name='blog-feed-subscribe'),
     path('api/blogs/<int:blog_id>/favorite/', favorite_blog_view, name='blog-favorite'),
     path('api/featured-project/', get_featured_project, name='featured-project'),
