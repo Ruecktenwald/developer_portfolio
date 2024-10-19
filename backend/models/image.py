@@ -2,8 +2,7 @@ from django.db import models
 
 class Image(models.Model):
     file = models.ImageField(upload_to='images/')
-    alt_text = models.CharField(max_length=255, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    project = models.OneToOneField('Project', on_delete=models.CASCADE, null=True, blank=True, related_name='project_image')  # One-to-one with Project
 
     def __str__(self):
-        return self.alt_text or "Image"
+        return f"Image for {self.project.title}" if self.project else "Unassigned Image"

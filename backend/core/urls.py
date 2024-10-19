@@ -1,5 +1,3 @@
-# urls.py
-
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include
@@ -14,7 +12,6 @@ from backend.views.signup_view import signup_view
 from backend.views.blog_feed_subscribe_view import blog_feed_subscribe_view
 from backend.views.favorite_blog_view import favorite_blog_view
 from backend.views.subscription_views import subscribe_to_blog_feed, unsubscribe_from_blog_feed
-from backend.views.contact_view import contact_view
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -33,12 +30,11 @@ urlpatterns = [
     path('api/signup/', signup_view, name='signup'),  # User sign-up route
     path('api/blog-feed/subscribe/', blog_feed_subscribe_view, name='blog-feed-subscribe'),
     path('api/blogs/<int:blog_id>/favorite/', favorite_blog_view, name='blog-favorite'),
+    path('api/featured-project/', get_featured_project, name='featured-project'),
     path('api/subscribe/', subscribe_to_blog_feed, name='subscribe'),
     path('api/unsubscribe/', unsubscribe_from_blog_feed, name='unsubscribe'),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/auth/', include('djoser.urls')),
     path('api/auth/', include('djoser.urls.authtoken')),
-     path('api/contact/', contact_view, name='contact'), 
-    path('api/featured-project/', get_featured_project, name='featured-project'),  # Featured project route
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

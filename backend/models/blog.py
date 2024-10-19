@@ -1,14 +1,12 @@
 from django.db import models
-from django.contrib.auth.models import User
 
 class Blog(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blogs")
+    author = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
-    images = models.ManyToManyField('Image', blank=True)
-    videos = models.ManyToManyField('Video', blank=True)
-    favorites = models.ManyToManyField(User, related_name="favorite_blogs", blank=True)
-   
+    image = models.ForeignKey('Image', on_delete=models.SET_NULL, null=True, blank=True, related_name='blogs')  # Many-to-one with Image
+    video = models.ForeignKey('Video', on_delete=models.SET_NULL, null=True, blank=True, related_name='blogs')  # Many-to-one with Video
+
     def __str__(self):
         return self.title

@@ -29,7 +29,7 @@ const Contact = () => {
     <section id="contact" className="bg-bg1 text-white py-20 px-6">
       <div className="container mx-auto max-w-2xl">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-brand1">Contact Me</h2>
+          <h2 className="text-8xl font-regular text-brand1">Contact Me</h2>
           <p className="text-lg mt-4">Feel free to reach out for collaborations, questions, or just to say hi!</p>
         </div>
         {isSubmitted ? (

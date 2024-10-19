@@ -1,9 +1,11 @@
 from rest_framework import serializers
 from ..models.project import Project
+from ..models.image import Image
+from ..models.video import Video
 
 class ProjectSerializer(serializers.ModelSerializer):
-    images = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
-    videos = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    image = serializers.PrimaryKeyRelatedField(queryset=Image.objects.all(), allow_null=True)
+    video = serializers.PrimaryKeyRelatedField(queryset=Video.objects.all(), allow_null=True)
 
     class Meta:
         model = Project

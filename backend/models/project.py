@@ -6,9 +6,9 @@ class Project(models.Model):
     technologies = models.CharField(max_length=200)
     link = models.URLField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    images = models.ManyToManyField('Image', blank=True)
-    videos = models.ManyToManyField('Video', blank=True)
-    is_featured = models.BooleanField(default=False)  # New field to mark if the project is featured
+    image = models.ForeignKey('Image', on_delete=models.SET_NULL, null=True, blank=True, related_name='projects')  # Many-to-one with Image
+    video = models.ForeignKey('Video', on_delete=models.SET_NULL, null=True, blank=True, related_name='projects')  # Many-to-one with Video
+    is_featured = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
