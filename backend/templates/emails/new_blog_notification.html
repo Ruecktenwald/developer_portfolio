@@ -11,6 +11,7 @@
     <p><strong>Content:</strong></p>
     <p>{{ blog.content }}</p>
     <p>Thank you for subscribing to our blog feed!</p>
+    <p>If you no longer wish to receive these notifications, <a href="{{ site_url }}/api/unsubscribe/?email={{ subscriber.email }}">unsubscribe here</a>.</p>
     <p>Best regards,<br>Ruecktenwald Blog Team</p>
 </body>
 </html>

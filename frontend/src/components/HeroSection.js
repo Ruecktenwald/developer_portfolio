@@ -58,22 +58,38 @@ const HeroSection = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Optimistically set the submitted state to true
+    setIsSubmitted(true);
+    setTimeout(() => {
+      handleModalClose();
+    }, 1000);
+
     try {
       await axios.post('http://127.0.0.1:8000/api/contact/', formData);
-      setIsSubmitted(true);
     } catch (error) {
       console.error('Contact form submission error:', error);
       alert('There was an error submitting your message.');
+      setIsSubmitted(false); // Revert submission state on failure
     }
   };
 
   return (
-    <section id="top" className="min-h-screen flex items-center justify-center bg-bg2 text-white pt-20 px-6 md:pl-12 lg:pl-20">
-      <div className="container mx-auto flex flex-col md:flex-row items-center gap-12">
+    <section id="top" className="min-h-screen flex items-center justify-center bg-bg2 text-white pt-20 px-6 md:pl-12 lg:pl-20 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-1/3 h-full pointer-events-none">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full">
+          <polygon points="0,0 100,0 100,100" fill="url(#grad1)" />
+          <defs>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style={{ stopColor: '#FF6B6B', stopOpacity: 1 }} />
+              <stop offset="100%" style={{ stopColor: '#FFD93D', stopOpacity: 1 }} />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div className="container mx-auto flex flex-col md:flex-row items-center gap-12 relative z-10">
         <div className="max-w-xl text-left">
-          <h1 className={`text-4xl font-regular mb-6 transition-opacity duration-1000 ease-in-out ${showContent ? 'opacity-100' : 'opacity-0'}`}>
-            Hi, I'm Peter Ruecktenwald
-          </h1>
+          <h1 className={`text-4xl font-regular mb-6 transition-opacity duration-1000 ease-in-out ${showContent ? 'opacity-100' : 'opacity-0'}`}>Hi, I'm Peter Ruecktenwald</h1>
           <p className="text-lg mb-6 font-mono">
             <span ref={typedElement}></span>
           </p>
@@ -91,7 +107,7 @@ const HeroSection = () => {
       </div>
 
       {isModalOpen && (
-        <Modal title="Contact Me" onClose={handleModalClose}>
+        <Modal title="Contact Me" onClose={handleModalClose} className="transition-opacity duration-500 ease-in-out">
           {isSubmitted ? (
             <div className="text-center">
               <h3 className="text-2xl text-bg1 font-bold mb-4">Thank you for reaching out!</h3>

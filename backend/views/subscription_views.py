@@ -2,6 +2,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from backend.models.blog_feed_subscriber import BlogFeedSubscriber
+from django.shortcuts import render
+
 
 @api_view(['POST'])
 def subscribe_to_blog_feed(request):
@@ -14,12 +16,14 @@ def subscribe_to_blog_feed(request):
     else:
         return Response({"message": "Already subscribed"}, status=status.HTTP_200_OK)
 
-@api_view(['POST'])
 def unsubscribe_from_blog_feed(request):
-    email = request.data.get('email')
+    email = request.GET.get('email')
+    if not email:
+        return render(request, 'emails/unsubscribe_failed.html', {"message": "Email address is missing."})
+
     try:
         subscriber = BlogFeedSubscriber.objects.get(email=email)
         subscriber.delete()
-        return Response({"message": "Unsubscribed successfully"}, status=status.HTTP_200_OK)
+        return render(request, 'emails/unsubscribe_success.html', {"message": "You have successfully unsubscribed. Sorry to see you go!"})
     except BlogFeedSubscriber.DoesNotExist:
-        return Response({"error": "Email not found"}, status=status.HTTP_404_NOT_FOUND)
+        return render(request, 'emails/unsubscribe_failed.html', {"message": "The email address was not found in our subscription list."})
