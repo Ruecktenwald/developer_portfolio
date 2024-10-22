@@ -9,13 +9,27 @@ const Contact = () => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: '' }); // Clear error on change
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validate inputs
+    const newErrors = {};
+    if (!formData.name) newErrors.name = 'Name is required';
+    if (!formData.email) newErrors.email = 'Email is required';
+    if (!formData.message) newErrors.message = 'Message is required';
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
     // Optimistically set the submitted state to true
     setIsSubmitted(true);
     try {
@@ -53,8 +67,9 @@ const Contact = () => {
               placeholder="Your Name"
               value={formData.name}
               onChange={handleChange}
-              className="p-4 rounded-lg bg-bg2 text-white outline-none focus:ring-2 focus:ring-brand1 transition"
+              className={`p-4 rounded-lg bg-bg2 text-white outline-none focus:ring-2 transition ${errors.name ? 'ring-red-500' : 'focus:ring-brand1'}`}
             />
+            {errors.name && <span className="text-red-500 text-sm mt-1">{errors.name}</span>}
           </div>
           <div className="flex flex-col">
             <label htmlFor="email" className="mb-2 text-sm font-semibold">Your Email</label>
@@ -65,8 +80,9 @@ const Contact = () => {
               placeholder="Your Email"
               value={formData.email}
               onChange={handleChange}
-              className="p-4 rounded-lg bg-bg2 text-white outline-none focus:ring-2 focus:ring-brand1 transition"
+              className={`p-4 rounded-lg bg-bg2 text-white outline-none focus:ring-2 transition ${errors.email ? 'ring-red-500' : 'focus:ring-brand1'}`}
             />
+            {errors.email && <span className="text-red-500 text-sm mt-1">{errors.email}</span>}
           </div>
           <div className="flex flex-col">
             <label htmlFor="message" className="mb-2 text-sm font-semibold">Your Message</label>
@@ -76,8 +92,9 @@ const Contact = () => {
               placeholder="Your Message"
               value={formData.message}
               onChange={handleChange}
-              className="p-4 rounded-lg bg-bg2 text-white outline-none focus:ring-2 focus:ring-brand1 transition h-32"
+              className={`p-4 rounded-lg bg-bg2 text-white outline-none focus:ring-2 transition h-32 ${errors.message ? 'ring-red-500' : 'focus:ring-brand1'}`}
             />
+            {errors.message && <span className="text-red-500 text-sm mt-1">{errors.message}</span>}
           </div>
           <div className="text-center">
             <button

@@ -19,3 +19,16 @@ code {
 html {
   scroll-behavior: smooth;
 }
+
+.page-enter {
+  @apply opacity-0;
+}
+.page-enter-active {
+  @apply opacity-100 transition-opacity duration-1000 ease-in-out;
+}
+.page-exit {
+  @apply opacity-100;
+}
+.page-exit-active {
+  @apply opacity-0 transition-opacity duration-1000 ease-in-out;
+}

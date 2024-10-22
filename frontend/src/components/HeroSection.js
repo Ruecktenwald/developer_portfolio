@@ -88,8 +88,8 @@ const HeroSection = () => {
         </svg>
       </div>
       <div className="container mx-auto flex flex-col md:flex-row items-center gap-12 relative z-10">
-        <div className="max-w-xl text-left">
-          <h1 className={`text-4xl font-regular mb-6 transition-opacity duration-1000 ease-in-out ${showContent ? 'opacity-100' : 'opacity-0'}`}>Hi, I'm Peter Ruecktenwald</h1>
+        <div className="max-w-sm md:max-w-xl text-left">
+          <h1 className={`text-4xl font-regular mb-6  transition-opacity duration-1000 ease-in-out ${showContent ? 'opacity-100' : 'opacity-0'}`}>Hi, I'm Peter Ruecktenwald</h1>
           <p className="text-lg mb-6 font-mono">
             <span ref={typedElement}></span>
           </p>

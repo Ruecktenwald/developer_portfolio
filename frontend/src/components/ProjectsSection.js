@@ -17,10 +17,9 @@ const ProjectsSection = () => {
   }, []);
 
   return (
-    <section className="bg-bg1 text-white py-16 md:px-12 px-6 relative">
-      {/* Light blue-green triangle pattern background on the left similar to Hero section */}
-      <div className="absolute left-0 top-0 w-full h-full bg-bg2 z-0"></div>
-      <div className="absolute left-0 top-0 w-full h-full z-0 pointer-events-none">
+    <section id="projects" className="bg-bg2 text-white py-16 md:px-12 px-6 relative overflow-hidden">
+      {/* Light blue-green triangle pattern background on the left */}
+      <div className="absolute left-0 top-0 w-1/3 h-full pointer-events-none">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full">
           <polygon points="0,0 100,0 0,100" fill="url(#grad2)" />
           <defs>
@@ -31,7 +30,8 @@ const ProjectsSection = () => {
           </defs>
         </svg>
       </div>
-      <div className="container mx-auto relative z-10">
+
+      <div className="container mx-auto relative">
         <h2 className="text-3xl font-regular text-bg1 mb-12 text-left border-b-2 border-bg1 pb-4">Projects</h2>
         <div className="flex flex-col gap-12">
           {projects
@@ -48,14 +48,12 @@ const ProjectsSection = () => {
                     />
                     {project.link && (
                       <div className="mt-4">
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="hover:text-brand2 text-brand1 font-bold inline-flex items-center"
+                        <button
+                          onClick={() => window.location.href = '/projects'}
+                          className="bg-brand1 text-bg1 font-bold px-3 py-3 rounded-lg hover:bg-brand2 transition duration-300 ease-in-out"
                         >
-                          View Project
-                        </a>
+                          View All Projects
+                        </button>
                       </div>
                     )}
                   </div>
@@ -67,9 +65,11 @@ const ProjectsSection = () => {
                         <h4 className="text-2xl font-bold text-brand1 mb-2">Technologies Used</h4>
                         <p className="text-md text-gray-300">{project.technologies}</p>
                       </div>
+                      
                     </div>
                   </div>
                 </div>
+                
               </div>
             ))}
         </div>
