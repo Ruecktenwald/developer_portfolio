@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Blog Post Notification</title>
+</head>
+<body>
+    <h2>New Blog Post: {{ blog.title }}</h2>
+    <p>Hello,</p>
+    <p>We are excited to inform you that a new blog post has been published on our website.</p>
+    <p><strong>Title:</strong> {{ blog.title }}</p>
+    <p><strong>Content:</strong></p>
+    <p>{{ blog.content }}</p>
+    <p>Thank you for subscribing to our blog feed!</p>
+    <p>If you no longer wish to receive these notifications, <a href="{{ site_url }}/api/unsubscribe/?email={{ subscriber.email }}">unsubscribe here</a>.</p>
+    <p>Best regards,<br>Ruecktenwald Blog Team</p>
+</body>
+</html>

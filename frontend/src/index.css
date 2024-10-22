@@ -1,13 +1,34 @@
+/* Import Tailwind base, components, and utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tailwind-style global reset and typography */
 body {
-  margin: 0;
+  @apply m-0 font-sans antialiased text-white bg-bg1;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    sans-serif;  /* Fallbacks, but prefers 'Ubuntu' */
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  @apply font-mono;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;  /* Fallbacks */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.page-enter {
+  @apply opacity-0;
+}
+.page-enter-active {
+  @apply opacity-100 transition-opacity duration-1000 ease-in-out;
+}
+.page-exit {
+  @apply opacity-100;
+}
+.page-exit-active {
+  @apply opacity-0 transition-opacity duration-1000 ease-in-out;
 }
